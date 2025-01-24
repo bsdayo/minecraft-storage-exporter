@@ -21,6 +21,7 @@ public partial class RconClient(IOptions<RconOptions> options, ILogger<RconClien
         var command = $"data get block {x} {y} {z}";
         logger.LogDebug("Sending command: {Command}", command);
         var response = await _rcon.SendCommandAsync(command);
+        logger.LogDebug("Got response: {Response}", response);
 
         // Remove unrelated message
         var snbt = SnbtRegex.Replace(response, "");
