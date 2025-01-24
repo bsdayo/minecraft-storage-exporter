@@ -13,7 +13,7 @@ builder.Services.AddOptions<List<StorageOptions>>().BindConfiguration("Storage")
 builder.Services.AddOpenTelemetry()
     .WithMetrics(metrics => metrics
         .AddMeter(SyncService.Meter.Name)
-        .AddPrometheusHttpListener());
+        .AddPrometheusHttpListener(opt => opt.UriPrefixes = ["http://*:9464/"]));
 
 builder.Services.AddSingleton<RconClient>();
 
