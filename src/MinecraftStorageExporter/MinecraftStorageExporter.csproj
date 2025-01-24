@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CoreRCON" Version="5.4.2" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.1" />
+        <PackageReference Include="OpenTelemetry.Exporter.Prometheus.HttpListener" Version="1.11.0-beta.1" />
+        <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.11.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
+</Project>
