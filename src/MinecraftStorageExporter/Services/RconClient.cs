@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Net;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using CoreRCON;
 using Microsoft.Extensions.Logging;
@@ -10,7 +11,10 @@ namespace MinecraftStorageExporter.Services;
 
 public partial class RconClient(IOptions<RconOptions> options, ILogger<RconClient> logger)
 {
-    private readonly RCON _rcon = new(options.Value.Host, options.Value.Port, options.Value.Password);
+    private readonly RCON _rcon = new(
+        Dns.GetHostAddresses(options.Value.Host)[0],
+        options.Value.Port,
+        options.Value.Password);
 
     public async Task<StorageBlock> GetStorageBlockAsync(int x, int y, int z)
     {

@@ -4,7 +4,7 @@ namespace MinecraftStorageExporter.Options;
 
 public class RconOptions
 {
-    public IPAddress Host { get; set; } = IPAddress.Parse("127.0.0.1");
+    public string Host { get; set; } = "localhost";
 
     public ushort Port { get; set; } = 25575;
 
